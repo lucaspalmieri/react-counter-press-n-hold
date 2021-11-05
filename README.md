@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="gif" src="https://giphy.com/embed/uRlbvidtOg3sCpD8WB" />
+    <img alt="gif" src="https://media.giphy.com/media/uRlbvidtOg3sCpD8WB/giphy.gif" />
     <br>
     React Counter Press and Hold
 </h1>
@@ -21,6 +21,7 @@ MIT
 ## Author
 
 <a href="https://lucaspalmieri.github.io/">Lucas Palmieri</a>
+<br>
 <a href="https://www.linkedin.com/in/lucas-palmieri/">
 <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
 </a>
