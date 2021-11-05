@@ -1,23 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
 
 function App() {
+  const [counter, setCounter] = React.useState(0);
+  const timer = React.useRef(null);
+
+  const inscrease = (hasToIncrease) => {
+    timer.current = setInterval(
+      () => setCounter((prev) => prev + (!hasToIncrease ? -1 : +1)),
+      150
+    );
+  };
+
+  function timeoutClear() {
+    clearInterval(timer.current);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className="wrapper">
+      <div>
+        <button
+          onMouseLeave={timeoutClear}
+          onMouseUp={timeoutClear}
+          onMouseDown={() => inscrease(false)}
+          onTouchStart={() => inscrease(false)}
+          onTouchEnd={timeoutClear}
+          onClick={() => {
+            setCounter(counter - 1);
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          -
+        </button>
+        <input
+          type="number"
+          min="0"
+          value={counter >= 0 && counter}
+          onChange={(e) => setCounter(parseInt(e.target.value))}
+        />
+        <button
+          onMouseLeave={timeoutClear}
+          onMouseUp={timeoutClear}
+          onMouseDown={inscrease}
+          onTouchStart={inscrease}
+          onTouchEnd={timeoutClear}
+          onClick={() => setCounter(counter + 1)}
+        >
+          +
+        </button>
+      </div>
     </div>
   );
 }
